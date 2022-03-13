@@ -5,35 +5,41 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PicnicItemStore{
-    public Map <String, List <String>> map;
+    Map <String, List <String>> map;
 
     public PicnicItemStore(){
 
         this.map = new HashMap<String, List<String>>();
 
     }
-    public PicnicItemStore(String filename)throws IOException{
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(filename));
-            String line = reader.readLine();
-            line = reader.readLine();
-            while (line != null) { //Put all items in the map
-                line = reader.readLine();
-                if (line != null) {
-                    this.put(line.substring(0, 1).toLowerCase(), line.toLowerCase());
-                }
+    public PicnicItemStore(String fileName){
+
+        try{
+
+            FileReader file = new FileReader(fileName);
+            BufferedReader reader = new BufferedReader(file);
+            String line ;//strItem
+
+            this.map = new HashMap<String, List<String>>();
+            while ((line = reader.readLine()) != null){
+                String lc = line.toLowerCase();
+                this.put(lc.substring(0,1) , lc);
             }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        } finally {
-            if (reader != null) { //Only in the item was opened
-                reader.close();
-            }
+            reader.close();
+
+
         }
+        catch(IOException e){
+
+            System.out.println("Exception: ");
+            e.printStackTrace();
+
+        }
+
     }
 
     public boolean containsKey(String key){
+
         //.get() is needed to return array items
         if(this.map.get(key) != null){
             return true;
@@ -62,12 +68,15 @@ public class PicnicItemStore{
 
         Random random = new Random();
 
-        if (containsKey(key)){
+        //converts the key into lowercase from the arg input in PicnicPlanner
+        key = key.toLowerCase();
+
+        if (containsKey(key) != false){
 
             List<String> ItemList = this.map.get(key);
             int length = ItemList.size();
 
-            if(length > 0 ){
+            if(length > 0){
 
                 int randint = random.nextInt(length);
                 String item = ItemList.get(randint);
@@ -85,8 +94,6 @@ public class PicnicItemStore{
                 return ItemCombined;
 
             }
-            return null;
-
 
         }
 
