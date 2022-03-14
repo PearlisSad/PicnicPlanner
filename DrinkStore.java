@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class DrinkStore extends PicnicItemStore {
-    public DrinkStore(String filename) {
+    public DrinkStore() {
         super(); //Super() for this class
     }
 

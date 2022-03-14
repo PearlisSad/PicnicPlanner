@@ -8,14 +8,11 @@ public class PicnicPlanner {
     public DrinkStore drink;
 
     public PicnicPlanner(){
-        this.picnic = new PicnicItemStore();
-        this.fruit = new PicnicItemStore("fruits.txt");
-        this.cheese = new CheeseStore("cheese.txt");
-        this.drink = new DrinkStore("drinks.txt");
+
     }
 
-    public List<String> generate(String input){
+    /*public List<String> generate(String input){
         List<String> plan;
 
-    }
+    }*/
 }

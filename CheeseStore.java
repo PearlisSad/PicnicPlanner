@@ -1,5 +1,8 @@
+import java.util.*;
+import java.io.*;
+
 public class CheeseStore extends PicnicItemStore {
-    public CheeseStore(String filename) {
+    public CheeseStore() {
         super(); //Super() for this class
     }
 
