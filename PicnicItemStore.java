@@ -5,18 +5,18 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PicnicItemStore{
-    Map <String, List <String>> map;
+    Map <String, List<String>> map;
 
     public PicnicItemStore(){
 
         this.map = new HashMap<String, List<String>>();
 
     }
-    public PicnicItemStore(String fileName){
+    public PicnicItemStore(String filename){
 
         try{
 
-            FileReader file = new FileReader(fileName);
+            FileReader file = new FileReader(filename);
             BufferedReader reader = new BufferedReader(file);
             String line ;//strItem
 
